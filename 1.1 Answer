@@ -1,0 +1,78 @@
+---  SELECT ---
+--1
+SELECT *
+FROM Orders
+
+--2
+SELECT *
+FROM Employees
+
+--3
+SELECT [FirstName], [HireDate], [Region], [Country]
+FROM Employees
+
+--4
+SELECT [CustomerID], [OrderID], [OrderDate]
+FROM Orders
+
+--5
+SELECT [ProductID] AS ProId,
+		[ProductName] AS ProNm,
+		[UnitPrice] as UntPr
+FROM Products
+
+--6
+SELECT Address as Ad,
+		City as Ct,
+		Region as Reg
+FROM Employees
+
+--7
+SELECT [CustomerID],[Address] + ',' + [Country] AS 'Full adrress'
+FROM Customers
+
+--8
+SELECT [FirstName] + ' ' + [LastName] AS 'FULL NAME',
+		DATEADD(DAY,8,[BirthDate]) AS 'BIRTH DATE',
+		[BirthDate] + 8 AS 'BIRTH DATE 2',
+		[ReportsTo] AS 'MANAGER#'
+FROM Employees
+
+--9
+SELECT DISTINCT City
+FROM Employees	
+
+--10
+SELECT DISTINCT Country
+FROM Employees
+
+--11
+SELECT DISTINCT Title
+FROM Employees
+
+--12
+----A
+SELECT Country, City
+FROM Customers
+
+---B
+SELECT DISTINCT Country,City
+FROM Customers
+
+--13
+SELECT FirstName, BirthDate, BirthDate +5 AS 'NEW DATE'
+FROM Employees
+
+--14
+SELECT [ProductName], [UnitPrice], [UnitPrice] + 10 AS 'NEW PRICE'
+FROM Products
+
+--15
+SELECT [ProductID], [ProductName], [UnitPrice], [UnitPrice] *1.165 AS 'NEW PRICE',[UnitsInStock],[UnitsOnOrder] ,
+		[UnitsInStock] - [UnitsOnOrder] AS 'UNITS'
+FROM Products
+
+--16
+SELECT [ProductID], [ProductName],
+		([UnitsInStock] - [UnitsOnOrder]) * [UnitPrice] AS 'TOTAL PRICE'
+FROM Products
